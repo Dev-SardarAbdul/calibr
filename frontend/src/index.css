@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.secondary-font {
+  font-family: "Barlow Condensed", sans-serif !important;
+}
+
+.main-container {
+  @apply max-w-[1536px] max-[1536px]:px-4 mx-auto;
+}
