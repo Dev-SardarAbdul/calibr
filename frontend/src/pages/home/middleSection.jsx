@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaLeaf, FaShieldAlt, FaTruck } from "react-icons/fa";
 import { IoMdRefresh } from "react-icons/io";
+import { motion } from "framer-motion";
 
 const data = [
   {
@@ -35,13 +36,24 @@ function MiddleSection() {
       <div className="main-container my-12 lg:my-24">
         <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {data?.map((item) => (
-            <div className="bg-white w-full sm:aspect-square shadow-2xl px-4 py-8 flex-col flex justify-center items-center gap-4 card ">
+            <motion.div
+              initial={{ x: -100 }}
+              whileInView={{ x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: item.id * 0.15,
+                duration: 0.3,
+                type: "spring",
+                stiffness: "120",
+              }}
+              className="bg-white w-full sm:aspect-square shadow-2xl px-4 py-8 flex-col flex justify-center items-center gap-4 card "
+            >
               {item.icon}
               <h2 className="text-3xl text-center font-[500] border-b-2 pb-2 border-slate-300 secondary-font text-black transition-all relative">
                 {item.header}
               </h2>
               <p className="text-lg text-center transition-all">{item.text}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
