@@ -13,3 +13,7 @@ body {
 .main-container {
   @apply max-w-[1536px] max-[1536px]:px-4 mx-auto;
 }
+
+.card:hover > svg {
+  color: black;
+}
