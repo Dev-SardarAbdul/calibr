@@ -17,6 +17,7 @@ export default {
       },
       backgroundImage: {
         drawerBG: "url('./src/assets/images/drawer2.png')",
+        collectionBG: "url('./src/assets/images/collectionBG.png')",
       },
     },
   },
