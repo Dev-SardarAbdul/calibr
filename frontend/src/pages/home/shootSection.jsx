@@ -7,15 +7,15 @@ function ShootSection() {
 
   console.log(hoveredDiv);
   return (
-    <div className="main-container my-12 lg:my-24">
+    <div className="my-12 main-container lg:my-24">
       <h2 className="text-center text-3xl md:text-5xl font-[500] capitalize secondary-font">
         Shoot for the stars with rifles
       </h2>
-      <p className=" w-full md:w-[400px] text-md md:text-xl mx-auto mt-4 text-center">
+      <p className=" w-full md:w-[700px] text-md md:text-xl mx-auto mt-4 text-center">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut
       </p>
-      <div className="flex lg:flex-row flex-col justify-between items-center mt-8 gap-8">
+      <div className="flex flex-col items-center justify-between gap-8 mt-8 lg:flex-row">
         <div
           className="rounded-full w-full max-lg:w-[300px] aspect-square flex justify-center items-center relative"
           onMouseEnter={() => setHoveredDiv("first")}

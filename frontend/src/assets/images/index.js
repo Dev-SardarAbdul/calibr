@@ -4,3 +4,6 @@ export { default as slide2 } from "./slide2.png";
 export { default as slide3 } from "./slide3.png";
 export { default as gun1 } from "./gun1.png";
 export { default as bullets1 } from "./bullets1.png";
+export { default as ar15 } from "./ar15.png";
+export { default as m79 } from "./m79.png";
+export { default as scar } from "./scar.png";
