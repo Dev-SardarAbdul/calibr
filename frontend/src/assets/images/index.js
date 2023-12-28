@@ -7,3 +7,4 @@ export { default as bullets1 } from "./bullets1.png";
 export { default as ar15 } from "./ar15.png";
 export { default as m79 } from "./m79.png";
 export { default as scar } from "./scar.png";
+export { default as goldPistol } from "./goldPistol.png";
