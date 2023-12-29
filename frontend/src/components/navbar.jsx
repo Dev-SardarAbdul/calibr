@@ -5,11 +5,13 @@ import { BsHandbag } from "react-icons/bs";
 import { RiMenu4Fill } from "react-icons/ri";
 import { AnimatePresence } from "framer-motion";
 import NavbarDrawer from "./navbarDrawer";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [showDrawer, setShowDrawer] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <>
       <div className="flex items-center justify-between py-4 main-container">
@@ -20,13 +22,28 @@ function Navbar() {
           />
         </div>
         <div className="justify-start hidden gap-8 lg:flex">
-          <a className="text-[18px] font-[500] text-white  hover:text-secondary transition-all cursor-pointer">
+          <a
+            className={`text-[18px] font-[500]   hover:text-secondary transition-all cursor-pointer ${
+              location.pathname == "/" ? "text-secondary" : "text-white"
+            }`}
+            onClick={() => navigate("/")}
+          >
             Home
           </a>
-          <a className="text-[18px] font-[500] text-white  hover:text-secondary transition-all cursor-pointer">
+          <a
+            className={`text-[18px] font-[500]  hover:text-secondary transition-all cursor-pointer ${
+              location.pathname == "/shop" ? "text-secondary" : "text-white"
+            }`}
+            onClick={() => navigate("/shop")}
+          >
             Shop
           </a>
-          <a className="text-[18px] font-[500] text-white  hover:text-secondary transition-all cursor-pointer">
+          <a
+            className={`text-[18px] font-[500]  hover:text-secondary transition-all cursor-pointer ${
+              location.pathname == "/contact" ? "text-secondary" : "text-white"
+            }`}
+            onClick={() => navigate("/contact")}
+          >
             Contact
           </a>
         </div>
