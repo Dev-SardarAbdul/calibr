@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { WishList, Home, Signin, Signup } from "./pages";
+import { WishList, Home, Signin, Signup, Contact, FAQs } from "./pages";
 import { Footer } from "./components";
 
 function App() {
@@ -14,6 +14,8 @@ function App() {
               <Route path="/sign-up" element={<Signup />} />
               <Route path="/sign-in" element={<Signin />} />
               <Route path="/wishlist" element={<WishList />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/faqs" element={<FAQs />} />
             </Routes>
           </div>
           <Footer />
