@@ -47,7 +47,11 @@ function Navbar() {
             Contact
           </a>
         </div>
-        <img className="w-[150px] cursor-pointer" src={logo} />
+        <img
+          className="w-[150px] cursor-pointer"
+          src={logo}
+          onClick={() => navigate("/")}
+        />
         <div className="justify-end hidden gap-8 lg:flex">
           <FaRegUser
             className={`text-[24px] cursor-pointer  hover:text-secondary transition-all ${

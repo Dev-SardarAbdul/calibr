@@ -1,32 +1,28 @@
 import React from "react";
-import { Navbar } from "../../components";
-import { useNavigate } from "react-router-dom";
+import { ShopCard, TopSection } from "../../components";
 
 function Shop() {
-  const navigate = useNavigate();
   return (
     <div>
-      <div className="min-h-[400px] bg-signupBG bg-cover bg-center bg-no-repeat relative">
-        <div className="absolute top-0 left-0 w-full h-full bg-[#484437] bg-opacity-60" />
-        <div className="relative z-[2] bg-[#393939] py-2">
-          <Navbar />
+      <TopSection topText={"Shop"} bottomText={"Shop"} />
+
+      <div className="my-12 main-container lg:my-24">
+        <div className="flex items-center justify-center gap-4 lg:justify-end">
+          <h2 className="secondary-font font-[600] text-2xl">Filter:</h2>
+          <select className="px-4 py-2 text-white border border-gray-300 outline-none cursor-pointer bg-secondary font-[500] secondary-font text-xl mb-4">
+            <option className="">All </option>
+            <option className="">ARs </option>
+            <option className="">SMGs </option>
+            <option className="">Shotguns </option>
+            <option className="">Explosives </option>
+          </select>
         </div>
-        <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full">
-          <h2 className="text-white secondary-font font-[600] text-4xl tracking-wider text-center mt-20">
-            Shop
-          </h2>
-          <p className="text-lg text-white font-[500] mt-2">
-            <span
-              className="cursor-pointer hover:text-secondary"
-              onClick={() => navigate("/")}
-            >
-              Home{" "}
-            </span>
-            / Shop
-          </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-2 sm:gap-x-8 gap-y-8 sm:gap-y-12">
+          {[1, 2, 3, 4, 5, 6].map(() => (
+            <ShopCard />
+          ))}
         </div>
       </div>
-      <div className="my-12 main-container lg:my-24">sdds</div>
     </div>
   );
 }
