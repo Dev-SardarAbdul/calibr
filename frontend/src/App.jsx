@@ -1,6 +1,15 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { WishList, Home, Signin, Signup, Contact, FAQs, Shop } from "./pages";
+import {
+  WishList,
+  Home,
+  Signin,
+  Signup,
+  Contact,
+  FAQs,
+  Shop,
+  Cart,
+} from "./pages";
 import { Footer } from "./components";
 
 function App() {
@@ -17,6 +26,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/faqs" element={<FAQs />} />
               <Route path="/shop" element={<Shop />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           </div>
           <Footer />

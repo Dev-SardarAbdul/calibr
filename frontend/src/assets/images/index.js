@@ -9,3 +9,4 @@ export { default as m79 } from "./m79.png";
 export { default as scar } from "./scar.png";
 export { default as goldPistol } from "./goldPistol.png";
 export { default as tableGun } from "./tableGun.png";
+export { default as productsGun } from "./productsGun.png";

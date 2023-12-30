@@ -50,14 +50,26 @@ function Navbar() {
         <img className="w-[150px] cursor-pointer" src={logo} />
         <div className="justify-end hidden gap-8 lg:flex">
           <FaRegUser
-            className="text-[24px] text-white cursor-pointer  hover:text-secondary transition-all "
+            className={`text-[24px] cursor-pointer  hover:text-secondary transition-all ${
+              location.pathname == "/sign-in" || location.pathname == "/sign-up"
+                ? "text-secondary"
+                : "text-white"
+            }`}
             onClick={() => navigate("/sign-in")}
           />
           <FaRegHeart
-            className="text-[24px] text-white cursor-pointer  hover:text-secondary transition-all"
+            className={`text-[24px]  cursor-pointer  hover:text-secondary transition-all ${
+              location.pathname == "/wishlist" ? "text-secondary" : "text-white"
+            }`}
             onClick={() => navigate("/wishlist")}
           />
-          <BsHandbag className="text-[24px] text-white cursor-pointer  hover:text-secondary transition-all" />
+
+          <BsHandbag
+            className={`text-[24px] ${
+              location.pathname == "/cart" ? "text-secondary" : "text-white"
+            } cursor-pointer  hover:text-secondary transition-all`}
+            onClick={() => navigate("/cart")}
+          />
         </div>
       </div>
       <AnimatePresence>

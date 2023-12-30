@@ -1,10 +1,12 @@
 import React from "react";
 import { Navbar, NotFound } from "../../components";
 import { useNavigate } from "react-router-dom";
-import WishlistTable from "./wishlistTable";
+import Products from "./products";
+import OrderSummary from "./orderSummary";
 
-function WishList() {
+function Cart() {
   const navigate = useNavigate();
+
   const showCart = true;
   return (
     <div>
@@ -14,8 +16,8 @@ function WishList() {
           <Navbar />
         </div>
         <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full">
-          <h2 className="uppercase text-white secondary-font font-[600] text-4xl tracking-wider text-center mt-20">
-            Wishlist
+          <h2 className="text-white secondary-font font-[600] text-4xl tracking-wider text-center mt-20">
+            Your Shopping Cart
           </h2>
           <p className="text-lg text-white font-[500] mt-2">
             <span
@@ -24,21 +26,26 @@ function WishList() {
             >
               Home{" "}
             </span>
-            / Wishlist
+            / Cart
           </p>
         </div>
       </div>
-      <div className="main-container">
-        <div className="my-12 lg:my-24 ">
-          {showCart ? (
-            <NotFound text={"  Nothing found in wishlist!"} />
-          ) : (
-            <WishlistTable />
-          )}
-        </div>
+      <div className="flex justify-center my-12 main-container lg:my-24">
+        {showCart ? (
+          <NotFound text={"Nothing found in cart!"} />
+        ) : (
+          <div className="xxl:w-[1200px] w-full flex flex-col lg:flex-row justify-between gap-8">
+            <div className="flex-1 ">
+              <Products />
+            </div>
+            <div className="sm:w-[350px] w-full mx-auto">
+              <OrderSummary />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-export default WishList;
+export default Cart;
