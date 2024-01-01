@@ -23,7 +23,7 @@ function AdminDashboard() {
       <div className="w-full h-full overflow-auto">
         <Navbar />
         <div className="p-4 lg:p-8">
-          <div className="min-h-[calc(100vh-140px)] bg-white rounded-2xl bg-opacity-50 shadow-adminBoxShadow p-4 lg:p-8">
+          <div className="min-h-[calc(100vh-140px)] bg-white rounded-2xl bg-opacity-90 shadow-adminBoxShadow p-4 lg:p-8">
             <Routes>
               <Route path="/" element={<HomeHero />} />
               <Route path="/home/features" element={<HomeFeatures />} />

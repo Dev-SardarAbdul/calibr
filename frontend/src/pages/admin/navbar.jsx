@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiMenu4Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import MobileSidebar from "./mobileSidebar";
@@ -7,6 +7,18 @@ import { AnimatePresence } from "framer-motion";
 function Navbar() {
   const navigate = useNavigate();
   const [showDrawer, setShowDrawer] = useState(false);
+
+  useEffect(() => {
+    if (showDrawer) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showDrawer]);
 
   return (
     <div className="bg-secondary">
