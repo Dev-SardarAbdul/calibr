@@ -22,7 +22,7 @@ function Sidebar() {
       <img className="w-[100px] mx-auto" src={logo} />
       <div className="flex flex-col justify-start mt-11">
         {sidebarData.map((item, index) => (
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full" key={item.id}>
             <div
               className={`flex items-center py-2 justify-between w-full px-4 cursor-pointer ${
                 location.pathname === item.route
@@ -35,7 +35,7 @@ function Sidebar() {
               }}
             >
               <p
-                className={`text-[16px] transition-all duration-300 w-full font-[600]`}
+                className={`text-[18px] transition-all duration-300 w-full font-[600] secondary-font `}
               >
                 {index + 1}. {item.header}
               </p>
@@ -61,9 +61,9 @@ function Sidebar() {
                   transition={{ delay: 0.1, duration: 0.2 }}
                 >
                   {item.subRoutes.map((x, index) => (
-                    <>
+                    <React.Fragment key={x.text}>
                       <li
-                        className={`px-4 py-2 cursor-pointer text-[14px] transition-all duration-300 w-full font-[600] ${
+                        className={`px-4 py-2 cursor-pointer text-[16px] transition-all duration-300 w-full font-[600] secondary-font  ${
                           location.pathname === x.route
                             ? "text-white bg-secondary"
                             : "text-secondary bg-white"
@@ -73,7 +73,7 @@ function Sidebar() {
                         {"•" + " " + x.text}
                       </li>
                       {index !== item.subRoutes.length - 1 && <hr />}
-                    </>
+                    </React.Fragment>
                   ))}
                 </motion.ul>
               )}

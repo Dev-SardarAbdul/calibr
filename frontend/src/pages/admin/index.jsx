@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Sidebar from "./sidebar";
 import Navbar from "./navbar";
@@ -8,6 +8,9 @@ import Products from "./adminScreens/products";
 import Users from "./adminScreens/users";
 import Messages from "./adminScreens/messages";
 import Orders from "./adminScreens/orders";
+import HomeFeatures from "./adminScreens/homeFeatures";
+import HomeProducts from "./adminScreens/homeProducts";
+import HomeShoot from "./adminScreens/homeShoot";
 
 function AdminDashboard() {
   return (
@@ -23,6 +26,9 @@ function AdminDashboard() {
           <div className="min-h-[calc(100vh-140px)] bg-white rounded-2xl bg-opacity-50 shadow-adminBoxShadow p-4 lg:p-8">
             <Routes>
               <Route path="/" element={<HomeHero />} />
+              <Route path="/home/features" element={<HomeFeatures />} />
+              <Route path="/home/shoot" element={<HomeShoot />} />
+              <Route path="/home/new-products" element={<HomeProducts />} />
               <Route path="/products" element={<Products />} />
               <Route path="/users" element={<Users />} />
               <Route path="/messages" element={<Messages />} />

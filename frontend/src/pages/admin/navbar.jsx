@@ -1,16 +1,17 @@
-import React from "react";
-import { BsHandbag } from "react-icons/bs";
-import { FaRegHeart, FaRegUser } from "react-icons/fa";
+import React, { useState } from "react";
 import { RiMenu4Fill } from "react-icons/ri";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import MobileSidebar from "./mobileSidebar";
+import { AnimatePresence } from "framer-motion";
 
 function Navbar() {
   const navigate = useNavigate();
-  const location = useLocation();
+  const [showDrawer, setShowDrawer] = useState(false);
+
   return (
     <div className="bg-secondary">
       <div className="flex items-center justify-between px-4 py-4 lg:px-8 ">
-        <div className="block lg:hidden">
+        <div className="block lg:hidden" onClick={() => setShowDrawer(true)}>
           <RiMenu4Fill className="text-[42px] text-white" />
         </div>
         <div className="justify-start hidden gap-8 lg:flex">
@@ -39,6 +40,9 @@ function Navbar() {
           </button>
         </div>
       </div>
+      <AnimatePresence>
+        {showDrawer && <MobileSidebar setShowDrawer={setShowDrawer} />}
+      </AnimatePresence>
     </div>
   );
 }
