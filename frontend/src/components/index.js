@@ -10,3 +10,6 @@ export { default as DeleteSlideModal } from "./modals/adminHero/confirmDeleteMod
 export { default as AddFeatureModal } from "./modals/adminFeatures/addFeature";
 export { default as EditFeatureModal } from "./modals/adminFeatures/editFeature";
 export { default as DeleteFeatureModal } from "./modals/adminFeatures/confirmDeleteModal";
+export { default as AddProductModal } from "./modals/adminNewProduct/addProduct";
+export { default as EditProductModal } from "./modals/adminNewProduct/editProduct";
+export { default as DeletProductModal } from "./modals/adminNewProduct/confirmDeleteModal";

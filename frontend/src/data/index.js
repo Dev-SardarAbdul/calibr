@@ -42,6 +42,25 @@ export const adminFeaturesTableData = [
   },
 ];
 
+export const adminNewProductsTableData = [
+  {
+    id: 1,
+    name: "Gun Name",
+  },
+  {
+    id: 2,
+    name: "Price",
+  },
+  {
+    id: 3,
+    name: "Image",
+  },
+  {
+    id: 4,
+    name: "Actions",
+  },
+];
+
 export const sidebarData = [
   {
     id: 1,
