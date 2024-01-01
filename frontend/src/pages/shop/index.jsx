@@ -1,7 +1,26 @@
 import React from "react";
 import { ShopCard, TopSection } from "../../components";
+import { motion } from "framer-motion";
 
 function Shop() {
+  const variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    },
+  };
+
   return (
     <div>
       <TopSection topText={"Shop"} bottomText={"Shop"} />
@@ -17,11 +36,19 @@ function Shop() {
             <option className="">Explosives </option>
           </select>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-2 sm:gap-x-8 gap-y-8 sm:gap-y-12">
-          {[1, 2, 3, 4, 5, 6].map(() => (
-            <ShopCard />
+
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-2 sm:gap-x-8 gap-y-8 sm:gap-y-12"
+          variants={variants}
+          initial={"hidden"}
+          animate={"visible"}
+        >
+          {[1, 2, 3, 4, 5, 6].map((index) => (
+            <motion.div key={index} variants={cardVariants}>
+              <ShopCard />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
