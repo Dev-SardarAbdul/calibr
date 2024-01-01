@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
-function EditSlideModal({ setShowAddModal }) {
+function AddSlideModal({ setShowAddModal }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -21,7 +21,7 @@ function EditSlideModal({ setShowAddModal }) {
           onClick={() => setShowAddModal(false)}
         />
         <h2 className="text-center text-[24px] lg:text-[32px] font-[600] secondary-font text-secondary ">
-          Edit Slide
+          Add New Slide
         </h2>
         <div className="grid grid-cols-1 gap-2 mt-4 lg:gap-4 lg:grid-cols-2 ">
           <div className="flex flex-col items-start gap-2">
@@ -69,11 +69,11 @@ function EditSlideModal({ setShowAddModal }) {
           </div>
         </div>
         <button className="bg-white block mx-auto mt-8 text-secondary px-4 sm:px-8 py-2 text-[14px] sm:text-[16px] font-[600] tracking-wider hover:bg-secondary hover:text-white border border-secondary hover:border-white duration-500">
-          Edit
+          Add
         </button>
       </div>
     </motion.div>
   );
 }
 
-export default EditSlideModal;
+export default AddSlideModal;
