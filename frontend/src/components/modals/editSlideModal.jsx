@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
-function AddSlideModal({ setShowAddModal }) {
+function EditSlideModal({ setShowAddModal }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -13,7 +13,7 @@ function AddSlideModal({ setShowAddModal }) {
       onClick={() => setShowAddModal(false)}
     >
       <div
-        className="relative w-full p-4 bg-white rounded-lg lg:p-8 sm:w-1/2 lg:gap-8"
+        className="relative w-full p-4 bg-white rounded-lg lg:p-8 sm:w-1/2 lg:gap-8 shadow-adminBoxShadow"
         onClick={(e) => e.stopPropagation()}
       >
         <IoCloseCircleOutline
@@ -21,7 +21,7 @@ function AddSlideModal({ setShowAddModal }) {
           onClick={() => setShowAddModal(false)}
         />
         <h2 className="text-center text-[24px] lg:text-[32px] font-[600] secondary-font text-secondary ">
-          Add New Slide
+          Edit Slide
         </h2>
         <div className="grid grid-cols-1 gap-2 mt-4 lg:gap-4 lg:grid-cols-2 ">
           <div className="flex flex-col items-start gap-2">
@@ -69,11 +69,11 @@ function AddSlideModal({ setShowAddModal }) {
           </div>
         </div>
         <button className="bg-white block mx-auto mt-8 text-secondary px-4 sm:px-8 py-2 text-[14px] sm:text-[16px] font-[600] tracking-wider hover:bg-secondary hover:text-white border border-secondary hover:border-white duration-500">
-          Add
+          Edit
         </button>
       </div>
     </motion.div>
   );
 }
 
-export default AddSlideModal;
+export default EditSlideModal;
