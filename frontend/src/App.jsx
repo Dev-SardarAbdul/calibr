@@ -9,6 +9,7 @@ import {
   FAQs,
   Shop,
   Cart,
+  Admin,
 } from "./pages";
 import { Footer } from "./components";
 
@@ -27,9 +28,10 @@ function App() {
               <Route path="/faqs" element={<FAQs />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/admin/*" element={<Admin />} />
             </Routes>
           </div>
-          <Footer />
+          {window.location.pathname.startsWith("/admin") ? "" : <Footer />}
         </div>
       </BrowserRouter>
     </div>

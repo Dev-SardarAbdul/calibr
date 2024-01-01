@@ -6,3 +6,4 @@ export { default as Contact } from "./contact";
 export { default as FAQs } from "./faqs";
 export { default as Shop } from "./shop";
 export { default as Cart } from "./cart";
+export { default as Admin } from "./admin";
