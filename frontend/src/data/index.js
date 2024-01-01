@@ -20,3 +20,21 @@ export const adminHeroTableData = [
     name: "Actions",
   },
 ];
+export const adminFeaturesTableData = [
+  {
+    id: 1,
+    name: "Header",
+  },
+  {
+    id: 2,
+    name: "Sub Text",
+  },
+  {
+    id: 3,
+    name: "Image",
+  },
+  {
+    id: 4,
+    name: "Actions",
+  },
+];
