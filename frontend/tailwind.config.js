@@ -23,6 +23,7 @@ export default {
       },
       boxShadow: {
         adminBoxShadow: "5px 5px 25px 5px #B59D5A",
+        modalBoxShadow: "1px 1px 25px 1px #B59D5A",
       },
     },
   },

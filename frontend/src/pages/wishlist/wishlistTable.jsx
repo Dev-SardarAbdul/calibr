@@ -1,5 +1,4 @@
 import React from "react";
-import { tableGun } from "../../assets/images";
 import { MdDelete } from "react-icons/md";
 import { data, tableHeaderData } from "./data";
 

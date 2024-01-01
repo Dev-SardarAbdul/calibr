@@ -9,11 +9,11 @@ function AddSlideModal({ setShowAddModal }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2, delay: 0.1 }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center w-full h-full p-2 bg-black bg-opacity-70"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center w-full h-full p-2 bg-black bg-opacity-80"
       onClick={() => setShowAddModal(false)}
     >
       <div
-        className="relative w-full p-4 bg-white rounded-lg lg:p-8 sm:w-1/2 lg:gap-8 shadow-adminBoxShadow"
+        className="relative w-full p-4 bg-white rounded-lg lg:p-8 sm:w-1/2 lg:gap-8 shadow-modalBoxShadow"
         onClick={(e) => e.stopPropagation()}
       >
         <IoCloseCircleOutline

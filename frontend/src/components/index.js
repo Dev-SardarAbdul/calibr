@@ -6,3 +6,4 @@ export { default as ShopCard } from "./shopCard";
 export { default as TopSection } from "./navbarContainer";
 export { default as AddSlideModal } from "./modals/addSlideModal";
 export { default as EditSlideModal } from "./modals/editSlideModal";
+export { default as DeleteSlideModal } from "./modals/confirmDeleteModal";
