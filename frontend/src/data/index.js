@@ -60,6 +60,25 @@ export const adminNewProductsTableData = [
     name: "Actions",
   },
 ];
+
+export const userTableData = [
+  {
+    id: 1,
+    name: "Name",
+  },
+  {
+    id: 2,
+    name: "Email",
+  },
+  {
+    id: 3,
+    name: "Image",
+  },
+  {
+    id: 4,
+    name: "Actions",
+  },
+];
 export const productsTableData = [
   {
     id: 1,

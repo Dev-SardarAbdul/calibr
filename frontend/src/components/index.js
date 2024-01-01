@@ -20,3 +20,5 @@ export { default as DeletProductModal } from "./modals/homeModals/adminNewProduc
 export { default as ShopAddProductModal } from "./modals/productModals/addProduct";
 export { default as ShopEditProductModal } from "./modals/productModals/editProduct";
 export { default as ShopDeletProductModal } from "./modals/productModals/confirmDeleteModal";
+
+export { default as DeletUserModal } from "./modals/userModals/confirmDeleteModal";
