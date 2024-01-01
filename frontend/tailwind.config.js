@@ -19,6 +19,10 @@ export default {
         drawerBG: "url('./src/assets/images/drawer2.png')",
         collectionBG: "url('./src/assets/images/collectionBG.png')",
         signupBG: "url('./src/assets/images/slide3.png')",
+        adminBG: "url('./src/assets/images/adminBG.png')",
+      },
+      boxShadow: {
+        adminBoxShadow: "5px 5px 25px 5px #B59D5A",
       },
     },
   },

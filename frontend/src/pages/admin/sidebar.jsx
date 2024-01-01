@@ -18,7 +18,7 @@ function Sidebar() {
   };
 
   return (
-    <div className="hidden h-full py-8 overflow-auto border-r border-secondary w-60 lg:block">
+    <div className="hidden h-full py-8 overflow-auto bg-white border-r border-secondary w-60 lg:block">
       <img className="w-[100px] mx-auto" src={logo} />
       <div className="flex flex-col justify-start mt-11">
         {sidebarData.map((item, index) => (
@@ -35,7 +35,7 @@ function Sidebar() {
               }}
             >
               <p
-                className={`text-[18px] transition-all duration-700 w-full font-[600]`}
+                className={`text-[16px] transition-all duration-300 w-full font-[600]`}
               >
                 {index + 1}. {item.header}
               </p>
@@ -63,7 +63,7 @@ function Sidebar() {
                   {item.subRoutes.map((x, index) => (
                     <>
                       <li
-                        className={`px-4 py-2 cursor-pointer text-[14px] transition-all duration-700 w-full font-[600] ${
+                        className={`px-4 py-2 cursor-pointer text-[14px] transition-all duration-300 w-full font-[600] ${
                           location.pathname === x.route
                             ? "text-white bg-secondary"
                             : "text-secondary bg-white"
