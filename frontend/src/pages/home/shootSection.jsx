@@ -16,7 +16,16 @@ function ShootSection() {
         tempor incididunt ut
       </p>
       <div className="flex flex-col items-center justify-between gap-8 mt-8 lg:flex-row">
-        <div
+        <motion.div
+          initial={{ x: -100 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 0.45,
+            duration: 0.3,
+            type: "spring",
+            stiffness: "120",
+          }}
           className="rounded-full w-full max-lg:w-[300px] aspect-square flex justify-center items-center relative"
           onMouseEnter={() => setHoveredDiv("first")}
           onMouseLeave={() => setHoveredDiv("")}
@@ -27,7 +36,6 @@ function ShootSection() {
               opacity: hoveredDiv === "first" ? 1 : 0,
               scale: hoveredDiv === "first" ? 1 : 0,
             }}
-            transition={{ duration: 0.3 }}
           >
             <h2 className="text-center secondary-font text-2xl lg:text-6xl font-[600] text-white uppercase">
               Ammunition
@@ -41,8 +49,17 @@ function ShootSection() {
             className="absolute top-0 left-0 w-full h-full rounded-full"
             src={bullets1}
           />
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          initial={{ x: -100 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 0.65,
+            duration: 0.3,
+            type: "spring",
+            stiffness: "120",
+          }}
           className="rounded-full w-full max-lg:w-[300px] aspect-square flex justify-center items-center relative"
           onMouseEnter={() => setHoveredDiv("second")}
           onMouseLeave={() => setHoveredDiv("")}
@@ -67,7 +84,7 @@ function ShootSection() {
             className="absolute top-0 left-0 w-full h-full rounded-full"
             src={gun1}
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
