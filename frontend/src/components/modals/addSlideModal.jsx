@@ -5,9 +5,9 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 function AddSlideModal({ setShowAddModal }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.2, delay: 0.1 }}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center w-full h-full p-2 bg-black bg-opacity-70"
       onClick={() => setShowAddModal(false)}

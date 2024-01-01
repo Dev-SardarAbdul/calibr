@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AddSlideModal } from "../../../components";
 import { AnimatePresence } from "framer-motion";
 
 function HomeHero() {
   const [showAddModal, setShowAddModal] = useState(false);
+
+  useEffect(() => {
+    if (showAddModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showAddModal]);
+
   return (
     <div>
       <div className="w-1/2 mx-auto">
