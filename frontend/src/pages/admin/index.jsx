@@ -3,6 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import Sidebar from "./sidebar";
 import Navbar from "./navbar";
 import { collectionBG } from "../../assets/images";
+import HomeHero from "./adminScreens/homeHero";
+import Products from "./adminScreens/products";
+import Users from "./adminScreens/users";
+import Messages from "./adminScreens/messages";
+import Orders from "./adminScreens/orders";
 
 function AdminDashboard() {
   return (
@@ -15,13 +20,13 @@ function AdminDashboard() {
       <div className="w-full h-full overflow-auto">
         <Navbar />
         <div className="p-4 lg:p-8">
-          <div className="min-h-[calc(100vh-140px)] bg-white rounded-2xl bg-opacity-50 shadow-adminBoxShadow">
+          <div className="min-h-[calc(100vh-140px)] bg-white rounded-2xl bg-opacity-50 shadow-adminBoxShadow p-4 lg:p-8">
             <Routes>
-              <Route path="/home/hero" element={<h2 className="">Admin</h2>} />
-              <Route path="/products" element={<h2>products</h2>} />
-              <Route path="/users" element={<h2>users</h2>} />
-              <Route path="/messages" element={<h2>messages</h2>} />
-              <Route path="/orders" element={<h2>orders</h2>} />
+              <Route path="/" element={<HomeHero />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/messages" element={<Messages />} />
+              <Route path="/orders" element={<Orders />} />
             </Routes>
           </div>
         </div>

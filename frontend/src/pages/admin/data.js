@@ -5,7 +5,7 @@ export const sidebarData = [
     subRoutes: [
       {
         text: "Hero",
-        route: "/admin/home/hero",
+        route: "/admin",
       },
       {
         text: "Features",
