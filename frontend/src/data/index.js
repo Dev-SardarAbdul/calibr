@@ -60,6 +60,24 @@ export const adminNewProductsTableData = [
     name: "Actions",
   },
 ];
+export const productsTableData = [
+  {
+    id: 1,
+    name: "Product Name",
+  },
+  {
+    id: 2,
+    name: "Price",
+  },
+  {
+    id: 3,
+    name: "Image",
+  },
+  {
+    id: 4,
+    name: "Actions",
+  },
+];
 
 export const sidebarData = [
   {
