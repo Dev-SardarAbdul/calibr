@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { sidebarData } from "./data";
+import { sidebarData } from "../../data";
 import { useLocation, useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";

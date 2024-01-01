@@ -10,7 +10,6 @@ import Messages from "./adminScreens/messages";
 import Orders from "./adminScreens/orders";
 import HomeFeatures from "./adminScreens/homeFeatures";
 import HomeProducts from "./adminScreens/homeProducts";
-import HomeShoot from "./adminScreens/homeShoot";
 
 function AdminDashboard() {
   return (
@@ -27,7 +26,6 @@ function AdminDashboard() {
             <Routes>
               <Route path="/" element={<HomeHero />} />
               <Route path="/home/features" element={<HomeFeatures />} />
-              <Route path="/home/shoot" element={<HomeShoot />} />
               <Route path="/home/new-products" element={<HomeProducts />} />
               <Route path="/products" element={<Products />} />
               <Route path="/users" element={<Users />} />

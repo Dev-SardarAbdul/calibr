@@ -1,6 +1,6 @@
 import React from "react";
 import { MdDelete } from "react-icons/md";
-import { data, tableHeaderData } from "./data";
+import { data, tableHeaderData } from "../../data";
 
 function WishlistTable() {
   return (
