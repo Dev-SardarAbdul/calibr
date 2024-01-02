@@ -18,4 +18,4 @@ const heroSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Hero", heroSchema);
+module.exports = mongoose.model("HeroSlide", heroSchema);
