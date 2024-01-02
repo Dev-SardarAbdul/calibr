@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Navbar } from "../../components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import { slide1, slide2, slide3 } from "../../assets/images";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { getHeroSlidesHook } from "../../../hooks/getHeroSlides";
 
 const swiperData = [
   {
@@ -33,6 +34,11 @@ const swiperData = [
 
 function Hero() {
   const swiperRef = useRef();
+  const { slidesData, getHeroSlides } = getHeroSlidesHook();
+
+  useEffect(() => {
+    getHeroSlides();
+  }, []);
 
   return (
     <div className="relative">
