@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import { slide1, slide2, slide3 } from "../../assets/images";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { getHeroSlidesHook } from "../../../hooks/getHeroSlides";
+import { getHeroSlidesHook } from "../../hooks/getHeroSlides";
 
 const swiperData = [
   {

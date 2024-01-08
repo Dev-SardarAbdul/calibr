@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   WishList,
@@ -12,11 +12,19 @@ import {
   Admin,
 } from "./pages";
 import { Footer } from "./components";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={true}
+          newestOnTop={true}
+          theme="dark"
+        />
         <div className="flex flex-col min-h-screen">
           <div className="flex-1">
             <Routes>

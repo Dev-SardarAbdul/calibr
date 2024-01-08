@@ -22,3 +22,5 @@ export { default as ShopEditProductModal } from "./modals/productModals/editProd
 export { default as ShopDeletProductModal } from "./modals/productModals/confirmDeleteModal";
 
 export { default as DeletUserModal } from "./modals/userModals/confirmDeleteModal";
+
+export { default as Loader } from "./loader";

@@ -6,14 +6,19 @@ const getAllSlides = async (req, res) => {
 };
 
 const createSlide = async (req, res) => {
-  const { topText, name, price } = req.body;
+  const { topText, name, price, fetchedImage } = req.body;
 
-  if (!topText || !name || !price) {
+  if (!topText || !name || !price || !fetchedImage) {
     return res.status(500).json({ message: "All fields are required!" });
   }
 
   try {
-    const newSlide = await HeroSlide.create({ topText, name, price });
+    const newSlide = await HeroSlide.create({
+      topText,
+      name,
+      price,
+      image: fetchedImage,
+    });
     res.status(200).json(newSlide);
   } catch (error) {
     res.status(500).json({ message: error.message });
