@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
+import { TopSection } from "../../components";
 
 const data = [
   {
