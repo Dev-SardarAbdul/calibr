@@ -110,20 +110,15 @@ function Contact() {
               <AnimatePresence>
                 {showAnswers[item.id] && (
                   <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, exit: { duration: 0.1 } }}
-                    className="p-4 md:p-6 bg-[#F7F5F8] shadow-md"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className=" bg-[#F7F5F8] shadow-md"
                   >
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="text-slate-900 font-[500] text-16 sm:tracking-wide"
-                    >
+                    <p className="text-slate-900 font-[500] p-4 md:p-6 text-16 sm:tracking-wide ">
                       {item.text}
-                    </motion.p>
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
