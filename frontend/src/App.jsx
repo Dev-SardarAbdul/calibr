@@ -14,9 +14,7 @@ import {
 import { Footer } from "./components";
 import { ToastContainer } from "react-toastify";
 import { AnimatePresence, animate } from "framer-motion";
-import Lottie from "react-lottie";
-import { pistol } from "./assets/images";
-import { motion } from "framer-motion";
+import PistolAnimation from "./components/pistolAnimation";
 
 function App() {
   const location = useLocation();
@@ -32,15 +30,6 @@ function App() {
     return () => clearTimeout(timeout);
   }, [location]);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: pistol,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   return (
     <div>
       <ToastContainer
@@ -52,22 +41,7 @@ function App() {
       />
       <AnimatePresence>
         {!location.pathname.startsWith("/admin") && loader && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.2, delay: 0.2 }}
-            className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full h-full cursor-default "
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
-              transition={{ delay: 0.5, duration: 0.2 }}
-            >
-              <Lottie options={defaultOptions} height={300} width={300} />
-            </motion.div>
-          </motion.div>
+          <PistolAnimation />
         )}
       </AnimatePresence>
 
