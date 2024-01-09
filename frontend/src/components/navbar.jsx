@@ -13,7 +13,7 @@ function Navbar() {
   const location = useLocation();
 
   return (
-    <>
+    <div className="relative">
       <div className="flex items-center justify-between py-4 main-container">
         <div className="block lg:hidden">
           <RiMenu4Fill
@@ -56,7 +56,7 @@ function Navbar() {
           </a>
         </div>
         <img
-          className="w-[150px] cursor-pointer"
+          className="w-[150px] cursor-pointer lg:absolute lg:left-1/2 lg:top-2 lg:-translate-x-1/2"
           src={logo}
           onClick={() => navigate("/")}
         />
@@ -89,7 +89,7 @@ function Navbar() {
           <NavbarDrawer setShowDrawer={setShowDrawer} showDrawer={showDrawer} />
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }
 
