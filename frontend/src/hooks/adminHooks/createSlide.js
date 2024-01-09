@@ -6,7 +6,13 @@ import { useState } from "react";
 export const createSlideHook = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const createSlide = async ({ topText, name, price, fetchedImage }) => {
+  const createSlide = async ({
+    topText,
+    name,
+    price,
+    fetchedImage,
+    setShowAddModal,
+  }) => {
     setIsLoading(true);
     const result = await axios.post(`${BACKENDURL}/heroSlides`, {
       topText,
@@ -19,6 +25,7 @@ export const createSlideHook = () => {
       if (result.status === 200) {
         toast.success("Slide added");
         setIsLoading(false);
+        setShowAddModal(false);
       }
     } catch (error) {
       toast.error(`${error.message}`);

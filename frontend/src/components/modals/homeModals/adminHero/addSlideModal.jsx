@@ -19,6 +19,7 @@ function AddSlideModal({ setShowAddModal }) {
   const [price, setPrice] = useState(0);
   const [fetchedImg, setFetchedImg] = useState(null);
   const { createSlide, isLoading } = createSlideHook();
+  const [isImageUploading, setIsImageUploading] = useState(false);
 
   useEffect(() => {
     if (image) {
@@ -27,25 +28,49 @@ function AddSlideModal({ setShowAddModal }) {
   }, [image]);
 
   const handleFileUpload = async (image) => {
-    const storage = getStorage(app);
-    const fileName = new Date().getTime() + image.name;
-    const storageRef = ref(storage, fileName);
-    const uploadTask = uploadBytesResumable(storageRef, image);
-    uploadTask.on(
-      "state_changed",
+    try {
+      setIsImageUploading(true);
 
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
-          setFetchedImg(downloadURL)
-        );
-      }
-    );
+      const storage = getStorage(app);
+      const fileName = new Date().getTime() + image.name;
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, image);
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {},
+        (error) => {
+          console.error("Error uploading file:", error);
+          setIsImageUploading(false);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref)
+            .then((downloadURL) => {
+              console.log("Download URL:", downloadURL);
+              setFetchedImg(downloadURL);
+              setIsImageUploading(false);
+            })
+            .catch((error) => {
+              console.error("Error getting download URL:", error);
+              setIsImageUploading(false);
+            });
+        }
+      );
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      setIsImageUploading(false);
+    }
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    createSlide({ topText, name, price, fetchedImage: fetchedImg });
+    createSlide({
+      topText,
+      name,
+      price,
+      fetchedImage: fetchedImg,
+      setShowAddModal,
+    });
   };
 
   return (
@@ -122,10 +147,11 @@ function AddSlideModal({ setShowAddModal }) {
             </div>
           </div>
           <button
-            className="bg-white block mx-auto mt-8 text-secondary px-4 sm:px-8 py-2 text-[14px] sm:text-[16px] font-[600] tracking-wider hover:bg-secondary hover:text-white border border-secondary hover:border-white duration-500"
+            disabled={isImageUploading || !topText || !name || !price}
+            className="bg-white block disabled:cursor-not-allowed disabled:opacity-50 mx-auto mt-8 text-secondary px-4 sm:px-8 py-2 text-[14px] sm:text-[16px] font-[600] tracking-wider hover:bg-secondary hover:text-white border border-secondary hover:border-white duration-500"
             onClick={handleSubmit}
           >
-            Add
+            {isImageUploading ? "Uploading Image" : "Add"}
           </button>
         </div>
       </motion.div>

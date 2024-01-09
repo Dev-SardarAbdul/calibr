@@ -3,11 +3,13 @@ import {
   AddSlideModal,
   DeleteSlideModal,
   EditSlideModal,
+  Loader,
 } from "../../../components";
 import { AnimatePresence } from "framer-motion";
 import { adminHeroTableData } from "../../../data";
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
+import { getHeroSlidesHook } from "../../../hooks/adminHooks/getHeroSlides";
 
 function HomeHero() {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -26,8 +28,17 @@ function HomeHero() {
     };
   }, [showAddModal, showEditModal, showDeleteModal]);
 
+  const { loading, getHeroSlides, slidesData } = getHeroSlidesHook();
+
+  useEffect(() => {
+    getHeroSlides();
+  }, []);
+
+  console.log(slidesData);
+
   return (
     <div>
+      {loading && <Loader />}
       <div className="w-full mx-auto lg:w-3/4">
         <div className="flex flex-col items-center justify-between gap-4">
           <h2 className="text-center text-[32px]  font-[600] secondary-font text-secondary">
@@ -51,21 +62,26 @@ function HomeHero() {
                   </div>
                 ))}
               </div>
-              {[1, 2, 3, 4, 5, 6].map((item) => (
+              {slidesData.map((item) => (
                 <div
                   className={`flex items-center te justify-between gap-8 p-4 last-of-type:border-none border-b border-slate-300`}
+                  key={item.id}
                 >
                   <div className="flex-1 text-slate-900 font-[400] text-center capitalize">
-                    Top text
+                    {item.topText}
                   </div>
                   <div className="flex-1 text-slate-900 font-[400] capitalize text-center">
-                    abc
+                    {item.name}
                   </div>
                   <div className="flex-1 text-slate-500 font-[400] capitalize text-center">
-                    $ 2221
+                    $ {item.price}
                   </div>
                   <div className="flex-1 text-slate-500 font-[400] capitalize text-center">
-                    Image
+                    <img
+                      className="mx-auto rounded-lg size-10"
+                      src={item.image}
+                      alt="slides image"
+                    />
                   </div>
 
                   <div className="flex-1 text-slate-900 font-[600] capitalize flex justify-center items-center gap-4">
