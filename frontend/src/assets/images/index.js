@@ -13,3 +13,4 @@ export { default as productsGun } from "./productsGun.png";
 export { default as adminBG } from "./adminBG.png";
 export { default as pistol3 } from "./pistol3.png";
 export { default as collectionBG } from "./collectionBG.png";
+export { default as pistol } from "../lotties/pistol.json";

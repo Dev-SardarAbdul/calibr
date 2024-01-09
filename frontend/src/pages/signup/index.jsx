@@ -15,7 +15,7 @@ function Signup() {
       opacity: 1,
       scale: 1,
 
-      transition: { duration: 0.35 },
+      transition: { duration: 0.35, delay: 0.5 },
     },
     exit: {
       opacity: 1,
