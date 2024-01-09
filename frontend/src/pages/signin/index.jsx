@@ -8,14 +8,19 @@ function Signin() {
 
   const containerVariants = {
     hidden: {
-      x: "100vw",
+      opacity: 0,
+      scale: 0,
     },
     visible: {
-      x: 0,
-      transition: { duration: 0.15 },
+      opacity: 1,
+      scale: 1,
+
+      transition: { duration: 0.35 },
     },
     exit: {
-      x: "-100vw",
+      opacity: 1,
+      scale: 0,
+
       transition: { ease: "easeInOut" },
     },
   };
