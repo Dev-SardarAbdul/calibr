@@ -1,11 +1,32 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { TopSection } from "../../components";
+import { motion } from "framer-motion";
 
 function Signup() {
   const navigate = useNavigate();
+
+  const containerVariants = {
+    hidden: {
+      x: "100vw",
+    },
+    visible: {
+      x: 0,
+      transition: { duration: 0.15 },
+    },
+    exit: {
+      x: "-100vw",
+      transition: { ease: "easeInOut" },
+    },
+  };
+
   return (
-    <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <TopSection topText={"Create an account"} bottomText={"Login"} />
       <div className="main-container">
         <div className="w-full md:w-[600px] mx-auto bg-[#F7F7F7] shadow-xl py-8 px-4 my-12 lg:my-24 border border-secondary">
@@ -40,7 +61,7 @@ function Signup() {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

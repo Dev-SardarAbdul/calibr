@@ -1,9 +1,28 @@
 import React from "react";
 import { TopSection } from "../../components";
+import { motion } from "framer-motion";
 
 function Contact() {
+  const containerVariants = {
+    hidden: {
+      x: "100vw",
+    },
+    visible: {
+      x: 0,
+      transition: { duration: 0.15 },
+    },
+    exit: {
+      x: "-100vw",
+      transition: { ease: "easeInOut" },
+    },
+  };
   return (
-    <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <TopSection topText={"Contact Us"} bottomText={"Contact"} />
 
       <div className="main-container">
@@ -28,7 +47,7 @@ function Contact() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -41,8 +41,27 @@ function Contact() {
     }));
   };
 
+  const containerVariants = {
+    hidden: {
+      x: "100vw",
+    },
+    visible: {
+      x: 0,
+      transition: { duration: 0.15 },
+    },
+    exit: {
+      x: "-100vw",
+      transition: { ease: "easeInOut" },
+    },
+  };
+
   return (
-    <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <TopSection topText={"Frequently Asked Questions"} bottomText={"FAQs"} />
 
       <div className="my-12 main-container lg:my-24 ">
@@ -107,7 +126,7 @@ function Contact() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

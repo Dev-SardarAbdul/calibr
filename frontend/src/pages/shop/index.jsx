@@ -21,8 +21,27 @@ function Shop() {
     },
   };
 
+  const containerVariants = {
+    hidden: {
+      x: "100vw",
+    },
+    visible: {
+      x: 0,
+      transition: { duration: 0.15 },
+    },
+    exit: {
+      x: "-100vw",
+      transition: { ease: "easeInOut" },
+    },
+  };
+
   return (
-    <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <TopSection topText={"Shop"} bottomText={"Shop"} />
 
       <div className="my-12 main-container lg:my-24">
@@ -50,7 +69,7 @@ function Shop() {
           ))}
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
