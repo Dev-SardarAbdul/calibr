@@ -46,6 +46,14 @@ function Navbar() {
           >
             Contact
           </a>
+          <a
+            className={`text-[18px] font-[500]  hover:text-secondary transition-all cursor-pointer ${
+              location.pathname == "/faqs" ? "text-secondary" : "text-white"
+            }`}
+            onClick={() => navigate("/faqs")}
+          >
+            FAQs
+          </a>
         </div>
         <img
           className="w-[150px] cursor-pointer"
