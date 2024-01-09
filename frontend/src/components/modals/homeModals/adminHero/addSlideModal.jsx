@@ -11,8 +11,6 @@ import {
 import { app } from "../../../../../firebase";
 import { createSlideHook } from "../../../../hooks/adminHooks/createSlide";
 import Loader from "../../../loader";
-import { toast } from "react-toastify";
-import { BACKENDURL } from "../../../../constants";
 
 function AddSlideModal({ setShowAddModal }) {
   const [image, setImage] = useState(null);
@@ -46,20 +44,8 @@ function AddSlideModal({ setShowAddModal }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post(`${BACKENDURL}/heroSlides`, {
-        topText,
-        name,
-        price,
-        fetchedImage: fetchedImg,
-      });
 
-      if (res.status === 200) {
-        toast.success("Slide added");
-      }
-    } catch (error) {
-      toast.error("Error ");
-    }
+    createSlide({ topText, name, price, fetchedImage: fetchedImg });
   };
 
   return (
