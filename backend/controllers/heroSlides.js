@@ -5,6 +5,13 @@ const getAllSlides = async (req, res) => {
   res.status(200).json(heroSlide);
 };
 
+const getSingleSlide = async (req, res) => {
+  const { id } = req.params;
+
+  const heroSlide = await HeroSlide.findById(id);
+  res.status(200).json(heroSlide);
+};
+
 const createSlide = async (req, res) => {
   const { topText, name, price, fetchedImage } = req.body;
 
@@ -73,6 +80,7 @@ const updateSlide = async (req, res) => {
 
 module.exports = {
   getAllSlides,
+  getSingleSlide,
   createSlide,
   deleteSlide,
   updateSlide,

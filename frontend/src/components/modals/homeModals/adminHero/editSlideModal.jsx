@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { editSlideHook } from "../../../../hooks/adminHooks/editSlide";
+import { getSingleSlideHook } from "../../../../hooks/adminHooks/getSingleSlide";
 import Loader from "../../../loader";
 import { useState } from "react";
 import {
@@ -13,19 +14,33 @@ import {
 import { app } from "../../../../../firebase";
 
 function EditSlideModal({ setShowEditModal, clickedItem }) {
-  const [image, setImage] = useState(null);
-  const [topText, setToptext] = useState("");
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
   const [fetchedImg, setFetchedImg] = useState(null);
   const [isImageUploading, setIsImageUploading] = useState(false);
   const { loading, editSlide } = editSlideHook();
+  const [image, setImage] = useState(null);
+  const [topText, setToptext] = useState("");
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState(null);
+
+  useEffect(() => {
+    getSingleSlide(clickedItem);
+  }, []);
+
+  const { loading: fetchLoading, data, getSingleSlide } = getSingleSlideHook();
 
   useEffect(() => {
     if (image) {
       handleFileUpload(image);
     }
   }, [image]);
+
+  useEffect(() => {
+    if (data) {
+      setToptext(data.topText);
+      setName(data.name);
+      setPrice(data.price);
+    }
+  }, [data]);
 
   const handleFileUpload = async (image) => {
     try {
@@ -65,9 +80,10 @@ function EditSlideModal({ setShowEditModal, clickedItem }) {
     e.preventDefault();
     editSlide(topText, name, price, fetchedImg, clickedItem, setShowEditModal);
   };
+
   return (
     <>
-      {loading && <Loader />}
+      {(fetchLoading || loading) && <Loader />}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -96,6 +112,7 @@ function EditSlideModal({ setShowEditModal, clickedItem }) {
                 className="w-full px-4 py-2 transition-all duration-500 bg-white border rounded-sm outline-none border-slate-200 focus:border-secondary text-slate-500"
                 type="text"
                 value={topText}
+                defaultValue={"asdadskhdsahjadsjhadshj"}
                 onChange={(e) => setToptext(e.target.value)}
                 placeholder="Enter Slide Detailed Text"
               />

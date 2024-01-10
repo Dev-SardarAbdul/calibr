@@ -11,6 +11,9 @@ export const heroSlidesSlice = createSlice({
     getAllSlides: (state, action) => {
       state.slides = action.payload;
     },
+    getSingleSlideSlice: (state, action) => {
+      state.slides = action.payload;
+    },
     addNewSlide: (state, action) => {
       state.slides = [...state.slides, action.payload];
     },
@@ -36,7 +39,12 @@ export const heroSlidesSlice = createSlice({
   },
 });
 
-export const { getAllSlides, addNewSlide, deleteSlideSlice, editSlideSlice } =
-  heroSlidesSlice.actions;
+export const {
+  getAllSlides,
+  addNewSlide,
+  deleteSlideSlice,
+  editSlideSlice,
+  getSingleSlideSlice,
+} = heroSlidesSlice.actions;
 
 export default heroSlidesSlice.reducer;

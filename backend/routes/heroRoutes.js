@@ -4,11 +4,14 @@ const {
   createSlide,
   deleteSlide,
   updateSlide,
+  getSingleSlide,
 } = require("../controllers/heroSlides");
 
 const router = express.Router();
 
 router.get("/", getAllSlides);
+
+router.get("/:id", getSingleSlide);
 
 router.post("/", createSlide);
 
