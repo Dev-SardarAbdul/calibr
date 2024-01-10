@@ -126,10 +126,6 @@ export const sidebarData = [
         route: "/admin",
       },
       {
-        text: "Features",
-        route: "/admin/home/features",
-      },
-      {
         text: "New Products",
         route: "/admin/home/new-products",
       },
