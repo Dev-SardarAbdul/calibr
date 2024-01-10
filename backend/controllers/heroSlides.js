@@ -68,8 +68,7 @@ const updateSlide = async (req, res) => {
   try {
     const updatedSlide = await HeroSlide.findByIdAndUpdate(
       { _id: id },
-      updatedFields,
-      { new: true }
+      updatedFields
     );
 
     res.status(200).json(updatedSlide);
