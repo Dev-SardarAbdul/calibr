@@ -80,10 +80,10 @@ function MobileSidebar({ setShowDrawer }) {
                     {showDropdown[item.id] && (
                       <motion.ul
                         className="list-disc"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ delay: 0.1, duration: 0.2 }}
+                        initial={{ height: 0 }}
+                        animate={{ height: "auto" }}
+                        exit={{ height: 0 }}
+                        transition={{ duration: 0.3 }}
                       >
                         {item.subRoutes.map((x, index) => (
                           <React.Fragment key={x.text}>

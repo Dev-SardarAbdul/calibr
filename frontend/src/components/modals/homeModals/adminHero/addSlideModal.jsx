@@ -147,7 +147,7 @@ function AddSlideModal({ setShowAddModal }) {
             </div>
           </div>
           <button
-            disabled={isImageUploading || !topText || !name || !price}
+            disabled={isImageUploading || !image || !topText || !name || !price}
             className="bg-white block disabled:cursor-not-allowed disabled:opacity-50 mx-auto mt-8 text-secondary px-4 sm:px-8 py-2 text-[14px] sm:text-[16px] font-[600] tracking-wider hover:bg-secondary hover:text-white border border-secondary hover:border-white duration-500"
             onClick={handleSubmit}
           >
