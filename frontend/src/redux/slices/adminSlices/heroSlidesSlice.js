@@ -14,13 +14,14 @@ export const heroSlidesSlice = createSlice({
     addNewSlide: (state, action) => {
       state.slides = [...state.slides, action.payload];
     },
-    deleteSlide: (state) => {
-      state.slides -= 1;
+    deleteSlideSlice: (state, action) => {
+      const _id = action.payload;
+      state.slides = state.slides.filter((slide) => slide._id !== _id);
     },
   },
 });
 
-export const { getAllSlides, addNewSlide, deleteSlide } =
+export const { getAllSlides, addNewSlide, deleteSlideSlice } =
   heroSlidesSlice.actions;
 
 export default heroSlidesSlice.reducer;

@@ -35,12 +35,14 @@ const swiperData = [
 
 function Hero() {
   const swiperRef = useRef();
-  const { getHeroSlides } = getHeroSlidesHook();
-  const { loading, slides } = useSelector((state) => state.heroSlides);
+  const { loading, getHeroSlides } = getHeroSlidesHook();
+  const { slides } = useSelector((state) => state.heroSlides);
 
   useEffect(() => {
     getHeroSlides();
   }, []);
+
+  const data = slides.length < 2 ? swiperData : slides;
 
   return (
     <div className="relative">
@@ -58,7 +60,7 @@ function Hero() {
           swiperRef.current = swiper;
         }}
       >
-        {slides?.map((item) => (
+        {data?.map((item) => (
           <SwiperSlide>
             <div className={`relative min-h-screen`}>
               <img

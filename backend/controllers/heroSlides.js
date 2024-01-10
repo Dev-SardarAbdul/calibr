@@ -29,8 +29,8 @@ const deleteSlide = async (req, res) => {
   const { id } = req.params;
 
   try {
-    await HeroSlide.findByIdAndDelete(id);
-    res.status(200).json({ message: "Slide deleted!" });
+    const deletedSlide = await HeroSlide.findByIdAndDelete(id);
+    res.status(200).json(deletedSlide);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

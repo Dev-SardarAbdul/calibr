@@ -16,6 +16,7 @@ function HomeHero() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [clickedItem, setClickedItem] = useState(null);
   const { slides } = useSelector((state) => state.heroSlides);
 
   useEffect(() => {
@@ -67,7 +68,7 @@ function HomeHero() {
               {slides.map((item) => (
                 <div
                   className={`flex items-center te justify-between gap-8 p-4 last-of-type:border-none border-b border-slate-300`}
-                  key={item.id}
+                  key={item._id}
                 >
                   <div className="flex-1 text-slate-900 font-[400] text-center capitalize">
                     {item.topText}
@@ -93,7 +94,10 @@ function HomeHero() {
                     />
                     <MdDelete
                       className="text-[24px] cursor-pointer"
-                      onClick={() => setShowDeleteModal(true)}
+                      onClick={() => {
+                        setShowDeleteModal(true);
+                        setClickedItem(item._id);
+                      }}
                     />
                   </div>
                 </div>
@@ -111,7 +115,10 @@ function HomeHero() {
         </AnimatePresence>
         <AnimatePresence>
           {showDeleteModal && (
-            <DeleteSlideModal setShowDeleteModal={setShowDeleteModal} />
+            <DeleteSlideModal
+              setShowDeleteModal={setShowDeleteModal}
+              clickedItem={clickedItem}
+            />
           )}
         </AnimatePresence>
       </div>
