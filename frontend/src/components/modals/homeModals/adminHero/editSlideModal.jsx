@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { editSlideHook } from "../../../../hooks/adminHooks/editSlide";
-import { Loader } from "../../../loader";
+import Loader from "../../../loader";
 import { useState } from "react";
 import { getStorage } from "firebase/storage";
 import { app } from "../../../../../firebase";
