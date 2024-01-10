@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { editSlideHook } from "../../../../hooks/adminHooks/editSlide";
 import Loader from "../../../loader";
 import { useState } from "react";
-import { getStorage } from "firebase/storage";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import { app } from "../../../../../firebase";
 
 function EditSlideModal({ setShowEditModal, clickedItem }) {
@@ -58,14 +63,7 @@ function EditSlideModal({ setShowEditModal, clickedItem }) {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    editSlide({
-      topText,
-      name,
-      price,
-      fetchedImage: fetchedImg,
-      setShowEditModal,
-    });
+    editSlide(topText, name, price, fetchedImg, clickedItem, setShowEditModal);
   };
   return (
     <>
@@ -141,8 +139,12 @@ function EditSlideModal({ setShowEditModal, clickedItem }) {
               />
             </div>
           </div>
-          <button className="bg-white block mx-auto mt-8 text-secondary px-4 sm:px-8 py-2 text-[14px] sm:text-[16px] font-[600] tracking-wider hover:bg-secondary hover:text-white border border-secondary hover:border-white duration-500">
-            Edit
+          <button
+            disabled={isImageUploading}
+            className="bg-white block disabled:cursor-not-allowed disabled:opacity-50 mx-auto mt-8 text-secondary px-4 sm:px-8 py-2 text-[14px] sm:text-[16px] font-[600] tracking-wider hover:bg-secondary hover:text-white border border-secondary hover:border-white duration-500"
+            onClick={handleSubmit}
+          >
+            {isImageUploading ? "Uploading Image" : "Edit"}
           </button>
         </div>
       </motion.div>

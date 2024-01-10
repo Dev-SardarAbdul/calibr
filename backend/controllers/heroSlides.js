@@ -38,7 +38,7 @@ const deleteSlide = async (req, res) => {
 
 const updateSlide = async (req, res) => {
   const { id } = req.params;
-  const { topText, name, price } = req.body;
+  const { topText, name, price, fetchedImage } = req.body;
 
   try {
     const updatedSlide = await HeroSlide.findByIdAndUpdate(
@@ -47,6 +47,7 @@ const updateSlide = async (req, res) => {
         topText,
         name,
         price,
+        image: fetchedImage,
       },
       { new: true }
     );

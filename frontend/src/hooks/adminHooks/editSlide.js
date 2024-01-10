@@ -9,12 +9,12 @@ export const editSlideHook = () => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const editSlide = async (
-    clickedItem,
-    setShowEditModal,
     topText,
     name,
     price,
-    fetchedImage
+    fetchedImg,
+    clickedItem,
+    setShowEditModal
   ) => {
     setLoading(true);
     const response = await axios.put(
@@ -23,7 +23,7 @@ export const editSlideHook = () => {
         topText,
         name,
         price,
-        fetchedImage,
+        fetchedImage: fetchedImg,
       }
     );
 
@@ -31,7 +31,7 @@ export const editSlideHook = () => {
       if (response.status === 200) {
         setLoading(false);
         console.log(response);
-        dispatch(editSlideSlice(result.data));
+        dispatch(editSlideSlice(response.data));
         toast.success("Slide edited successfully!");
         setShowEditModal(false);
       }
