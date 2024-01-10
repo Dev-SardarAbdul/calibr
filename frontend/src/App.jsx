@@ -40,12 +40,11 @@ function App() {
               <Route path="/faqs" element={<FAQs />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/admin/*" element={<Admin />} />
             </Routes>
           </AnimatePresence>
         </div>
-        <Routes>
-          <Route path="/admin/*" element={<Admin />} />
-        </Routes>
+
         {!location.pathname.startsWith("/admin") && <Footer />}
       </div>
     </div>
