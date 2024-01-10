@@ -25,7 +25,7 @@ const swiperData = [
     price: "$975.50",
   },
   {
-    id: 2,
+    id: 3,
     image: slide3,
     topText: ".22 LR Bolt Action Rifle 22 Barrel 10 Rounds",
     mainText: "Rimple Rifle",
@@ -61,7 +61,7 @@ function Hero() {
         }}
       >
         {data?.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={slides.length < 2 ? item.id : item._id}>
             <div className={`relative min-h-screen`}>
               <img
                 className="absolute inset-0 object-cover w-full h-full"
