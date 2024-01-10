@@ -10,11 +10,13 @@ import { adminHeroTableData } from "../../../data";
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { getHeroSlidesHook } from "../../../hooks/adminHooks/getHeroSlides";
+import { useSelector } from "react-redux";
 
 function HomeHero() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const { slides } = useSelector((state) => state.heroSlides);
 
   useEffect(() => {
     if (showAddModal || showEditModal || showDeleteModal) {
@@ -28,13 +30,13 @@ function HomeHero() {
     };
   }, [showAddModal, showEditModal, showDeleteModal]);
 
-  const { loading, getHeroSlides, slidesData } = getHeroSlidesHook();
+  const { loading, getHeroSlides } = getHeroSlidesHook();
 
   useEffect(() => {
     getHeroSlides();
   }, []);
 
-  console.log(slidesData);
+  console.log(slides);
 
   return (
     <div>
@@ -62,7 +64,7 @@ function HomeHero() {
                   </div>
                 ))}
               </div>
-              {slidesData.map((item) => (
+              {slides.map((item) => (
                 <div
                   className={`flex items-center te justify-between gap-8 p-4 last-of-type:border-none border-b border-slate-300`}
                   key={item.id}

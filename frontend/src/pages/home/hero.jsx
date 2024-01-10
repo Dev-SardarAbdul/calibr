@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import { Navbar } from "../../components";
+import { Loader, Navbar } from "../../components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import { slide1, slide2, slide3 } from "../../assets/images";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useSelector } from "react-redux";
 import { getHeroSlidesHook } from "../../hooks/adminHooks/getHeroSlides";
 
 const swiperData = [
@@ -34,7 +35,8 @@ const swiperData = [
 
 function Hero() {
   const swiperRef = useRef();
-  const { slidesData, getHeroSlides } = getHeroSlidesHook();
+  const { getHeroSlides } = getHeroSlidesHook();
+  const { loading, slides } = useSelector((state) => state.heroSlides);
 
   useEffect(() => {
     getHeroSlides();
@@ -42,6 +44,7 @@ function Hero() {
 
   return (
     <div className="relative">
+      {loading && <Loader />}
       <div className="absolute inset-0 w-full h-[80px] z-[2]">
         <Navbar />
       </div>
@@ -55,7 +58,7 @@ function Hero() {
           swiperRef.current = swiper;
         }}
       >
-        {swiperData?.map((item) => (
+        {slides?.map((item) => (
           <SwiperSlide>
             <div className={`relative min-h-screen`}>
               <img

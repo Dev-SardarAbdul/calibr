@@ -1,10 +1,12 @@
 import axios from "axios";
 import { BACKENDURL } from "../../constants";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getAllSlides } from "../../redux/slices/adminSlices/heroSlidesSlice";
 
 export const getHeroSlidesHook = () => {
-  const [slidesData, setSlidesData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const getHeroSlides = async () => {
     setLoading(true);
@@ -12,7 +14,7 @@ export const getHeroSlidesHook = () => {
 
     try {
       if (result.status === 200) {
-        setSlidesData(result.data);
+        dispatch(getAllSlides(result.data));
         setLoading(false);
       }
     } catch (error) {
@@ -21,5 +23,5 @@ export const getHeroSlidesHook = () => {
     }
   };
 
-  return { slidesData, loading, getHeroSlides };
+  return { loading, getHeroSlides };
 };

@@ -2,9 +2,12 @@ import axios from "axios";
 import { BACKENDURL } from "../../constants";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addNewSlide } from "../../redux/slices/adminSlices/heroSlidesSlice";
 
 export const createSlideHook = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const createSlide = async ({
     topText,
@@ -23,6 +26,7 @@ export const createSlideHook = () => {
 
     try {
       if (result.status === 200) {
+        dispatch(addNewSlide(result.data));
         toast.success("Slide added");
         setIsLoading(false);
         setShowAddModal(false);
