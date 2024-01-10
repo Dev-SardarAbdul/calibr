@@ -8,7 +8,6 @@ import Products from "./adminScreens/products";
 import Users from "./adminScreens/users";
 import Messages from "./adminScreens/messages";
 import Orders from "./adminScreens/orders";
-import HomeFeatures from "./adminScreens/homeFeatures";
 import HomeProducts from "./adminScreens/homeProducts";
 
 function AdminDashboard() {
@@ -25,7 +24,6 @@ function AdminDashboard() {
           <div className="min-h-[calc(100vh-140px)] bg-white rounded-2xl bg-opacity-90 shadow-adminBoxShadow p-4 lg:p-8">
             <Routes>
               <Route path="/" element={<HomeHero />} />
-              <Route path="/home/features" element={<HomeFeatures />} />
               <Route path="/home/new-products" element={<HomeProducts />} />
               <Route path="/products" element={<Products />} />
               <Route path="/users" element={<Users />} />

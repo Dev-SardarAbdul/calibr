@@ -40,15 +40,28 @@ const updateSlide = async (req, res) => {
   const { id } = req.params;
   const { topText, name, price, fetchedImage } = req.body;
 
+  const updatedFields = {};
+
+  if (topText) {
+    updatedFields.topText = topText;
+  }
+
+  if (name) {
+    updatedFields.name = name;
+  }
+
+  if (price) {
+    updatedFields.price = price;
+  }
+
+  if (fetchedImage) {
+    updatedFields.image = fetchedImage;
+  }
+
   try {
     const updatedSlide = await HeroSlide.findByIdAndUpdate(
       { _id: id },
-      {
-        topText,
-        name,
-        price,
-        image: fetchedImage,
-      },
+      updatedFields,
       { new: true }
     );
 

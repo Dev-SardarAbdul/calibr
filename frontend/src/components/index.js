@@ -9,10 +9,6 @@ export { default as AddSlideModal } from "./modals/homeModals/adminHero/addSlide
 export { default as EditSlideModal } from "./modals/homeModals/adminHero/editSlideModal";
 export { default as DeleteSlideModal } from "./modals/homeModals/adminHero/confirmDeleteModal";
 
-export { default as AddFeatureModal } from "./modals/homeModals/adminFeatures/addFeature";
-export { default as EditFeatureModal } from "./modals/homeModals/adminFeatures/editFeature";
-export { default as DeleteFeatureModal } from "./modals/homeModals/adminFeatures/confirmDeleteModal";
-
 export { default as AddProductModal } from "./modals/homeModals/adminNewProduct/addProduct";
 export { default as EditProductModal } from "./modals/homeModals/adminNewProduct/editProduct";
 export { default as DeletProductModal } from "./modals/homeModals/adminNewProduct/confirmDeleteModal";
